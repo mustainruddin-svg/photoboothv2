@@ -14,10 +14,14 @@ export default function App() {
 
   // Global applet configuration states
   const [settings, setSettings] = useState<AppSettings>(() => {
-    // Setiap yayasan/korjen kelas punya Web App URL sendiri — jangan pernah
-    // memaksakan URL bawaan di sini. Kosong = Mode Simulasi otomatis aktif,
-    // sampai operator menempelkan URL Google Apps Script miliknya sendiri.
-    const savedUrl = localStorage.getItem("photobooth_gas_url") || "";
+    // Prioritas URL Google Apps Script:
+    // 1. Yang tersimpan di localStorage (operator pernah mengisinya manual)
+    // 2. VITE_GAS_URL dari environment variable saat build (Vercel/GitHub
+    //    Actions) — cara aman untuk auto-connect di deployment produksi
+    //    TANPA menaruh URL asli di source code publik.
+    // 3. Kosong → Mode Simulasi otomatis aktif.
+    const envDefaultUrl = (import.meta.env.VITE_GAS_URL || "").trim();
+    const savedUrl = localStorage.getItem("photobooth_gas_url") || envDefaultUrl;
 
     return {
       googleAppsScriptUrl: savedUrl,
