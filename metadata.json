@@ -1,0 +1,5 @@
+{
+  "name": "ar-rahmah-photobooth",
+  "description": "A responsive landscape Photobooth with frame overlays, custom countdown, camera access, and a Google Apps Script.",
+  "requestFramePermissions": ["camera"]
+}

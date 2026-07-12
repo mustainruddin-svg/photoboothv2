@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/* =========================================================================
+   AR-RAHMAH PHOTOBOOTH — DESIGN TOKENS
+   Palet resmi: sky blue (utama), putih/krem (dominan), emas (aksen).
+   Hijau/teal sengaja tidak dipakai di seluruh antarmuka maupun frame.
+   ========================================================================= */
+:root {
+  --rahmah-cream: #faf6ec;
+  --rahmah-cream-flat: #fffdf8;
+  --rahmah-ink: #16233d;
+  --rahmah-ink-soft: #5b6b85;
+  --rahmah-line: #e9e1c8;
+  --rahmah-line-soft: #eee7d4;
+  --rahmah-sky: #0092d6;
+  --rahmah-sky-dark: #006a9e;
+  --rahmah-royal: #0b3b66;
+  --rahmah-gold: #d4af37;
+  --rahmah-gold-dark: #a9822a;
+  --rahmah-gold-soft: #f6ead0;
+  --rahmah-danger: #c23b2f;
+  --rahmah-danger-soft: #fbeae7;
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-brand {
+  font-family: var(--font-mono);
+}
+
+/* Small ornamental corner flourish echoing the Islamic geometric motif
+   used in the gold photo frames — the app chrome's signature detail. */
+.corner-flourish {
+  position: relative;
+}
+.corner-flourish::before,
+.corner-flourish::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border: 1.5px solid var(--rahmah-gold);
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+.corner-flourish::before {
+  left: -14px;
+}
+.corner-flourish::after {
+  right: -14px;
+}
